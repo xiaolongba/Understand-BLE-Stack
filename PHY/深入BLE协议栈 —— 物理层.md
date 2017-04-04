@@ -12,7 +12,7 @@ BLE芯片的物理层实现，将直接决定该芯片的通信速率、通信�
 
 在这个星球上，无线通信的频段并不可以自由使用，不同地区开辟了一些免费的频段，只要产品满足当地无线电规范要求，即可免授权进行使用。下图展示了全球免费频段的分布（[链接](http://predictabledesigns.com/most-important-decision-when-creating-wireless-product/)）：
 
-![Free frequency band in the world](..\_img\Free_Frequency_Band.png)
+![Free frequency band in the world](../_img/Free_Frequency_Band.png)
 
 图中2.4GHz的频段很强势，覆盖了整个地图，是专为工业（**I**ndustrial）、科学（**S**cientific）和医学（**M**edical）三个机构使用，称为ISM频段，全球范围都可以免费使用该频段。
 
@@ -20,13 +20,13 @@ BLE即工作在2.4GHz频段。
 
 2.4GHz频段有明显的优缺点，优点是免费、技术成熟，缺点是频段拥挤、传播特性差、遇水衰减。目前除了蓝牙信号外，WIFI、ZigBee、无线键盘、无线玩具甚至微波炉都工作在这个频段。当一个空间内同时运行着WIFI信号、微波炉和无线设备的时候，空间内的频带占用情况如下图（[链接](http://www.ti.com/lit/ml/slap127/slap127.pdf)）：
 
-![Crowded Frequency Band](..\_img\Crowded_Frequency_Band.png)
+![Crowded Frequency Band](../_img/Crowded_Frequency_Band.png)
 
 其中绿色的脉冲为BLE信号，红色信号分别是WIFI、微波炉和无线设备，它们对BLE而言就是干扰噪声。
 
 BLE工作在2.400GHz - 2.480GHz频率区间，并将这个区间均匀分为40个频道，相邻频道间隔2MHz，各个频道的频率和分布如下图：
 
-![BLE frequency channels](..\_img\BLE_frequency_channels.png)
+![BLE frequency channels](../_img/BLE_frequency_channels.png)
 
 BLE使用跳频技术（Frequency Hopping）来解决频段拥挤问题。在一个通信任务结束会更新信道信息，下一次通信任务将会发生在另一个信道上，整个通信过程在不同的信道之间进行跳转。
 
@@ -75,7 +75,7 @@ LE 1M是BLE协议强制要求实现的物理层实现方式，而LE Coded则是�
 
 频率调制就是将数据加载到高频载波上，数据的变化反映为调制波频率的疏密变化。如下图所示：
 
-![frequency modulation](..\_img\Frequency_Modulation.png)
+![frequency modulation](../_img/Frequency_Modulation.png)
 
 数字化的信号仅有0、1变化，在调制时，可以定义载波频率正向偏移为数字1，负向偏移为数字0。这种调制方式称为“频移键控（FSK）”。数字信号的0、1变换时，会产生高频噪声，引入高斯滤波器能够延展0-1之间的转换时间，进而降低噪声。这种做法称为“高斯频移键控（GFSK）”。
 
@@ -89,7 +89,7 @@ BLE协议规定，中心频率正向偏移大于等于185kHz视为数字比特1�
 
 
 
-![RF Transmitter](..\_img\RF_Transmitter.png)
+![RF Transmitter](../_img/RF_Transmitter.png)
 
 图中信号从左向右流动，基带信号经过GFSK调制分成同相和正交两路信号，再依次经过DA转换和低通滤波器，然后利用频率合成器进行频率上转换，再将两个信号分量合成后通过PA放大将信号推送到天线上。
 
@@ -162,7 +162,7 @@ BLE协议按照输出功率将BLE设备分成如下几类：
 
 这篇项目报告（[链接](http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/5479/pdf/imm5479.pdf)）详细论述了蓝牙接收机的解调器，值得参考。截取其中的接收机架构框图如下：
 
-![RF Receiver](..\_img\RF_Receiver.png)
+![RF Receiver](../_img/RF_Receiver.png)
 
 蓝牙信号进入到芯片内部，首先经过低噪声放大器（LNA），仍然是分成I/Q两个相位分量，再通过带通滤波器，VGA（Variable Gain Amplifier）可以按需进行放大，最后转成数字信号传入处理器中，这里框图省略了GFSK的解调过程，它位于AD转换器之后。
 
@@ -235,7 +235,7 @@ $path \space loss = 40 + 25 \times log (distance)$
 
 前面介绍了发射机和接收机，在实际的BLE芯片中，接收机和发射机是放在同一个电路中，称为收发机（Transceiver），下图是一个2.4GHz产品框图，有实际的参考价值（[链接](http://www.semtech.com/images/datasheet/rf_design_guidelines_semtech.pdf)）：
 
-![RF Transceiver](..\_img\RF_Transceiver.png)
+![RF Transceiver](../_img/RF_Transceiver.png)
 
 ## 7. 小结
 
