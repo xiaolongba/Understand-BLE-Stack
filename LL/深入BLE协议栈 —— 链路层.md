@@ -26,7 +26,7 @@
 
 这五种状态共同组成一个状态机，它们相互转换关系如下图：
 
-![LL State Machine](..\_img\LL_State_Machine.png)
+![LL State Machine](../_img/LL_State_Machine.png)
 
 观察上图，扫描态无法直接进入连接态，初次连接链路层状态要么是发起态，要么是广播态。从待机状态进入连接状态通常发生在连接已经建立好的情况。
 
@@ -72,7 +72,7 @@ IEEE注册页面为：http://standards.ieee.org/develop/regauth/index.html
 
 MA-L分为两部分，前三字节为OUI，后三字节为扩展，如下图所示（[链接](https://standards.ieee.org/develop/regauth/tut/eui.pdf)）：
 
-![OUI](..\_img\OUI.png)
+![OUI](../_img/OUI.png)
 
 前三字节的OUI（Organizationally Unique Identifier）表示组织识别码，后三字节通常是基于OUI再进行自主分配，所以申请MA-L地址段，主要就是获取OUI。
 
@@ -82,7 +82,7 @@ MA-L分为两部分，前三字节为OUI，后三字节为扩展，如下图所�
 
 公有地址分为两部分：company_id和company_assigned，如下图所示
 
-![Public Address](..\_img\Public_Address.png)
+![Public Address](../_img/Public_Address.png)
 
 其中company_id就相当于OUI，company_assigned则是公司自主分配，在确定了OUI以后，三字节的company_assigned总共可以分配超过一千万个设备。
 
@@ -96,7 +96,7 @@ MA-L分为两部分，前三字节为OUI，后三字节为扩展，如下图所�
 
 静态地址末尾2位必须是11，其他46位不能是全0或全1，它的结构如下：
 
-![Random Static Address](..\_img\Random_Static_Address.png)
+![Random Static Address](../_img/Random_Static_Address.png)
 
 新的静态地址的生成通常是由协议栈自己完成，无需外部干预。
 
@@ -108,7 +108,7 @@ MA-L分为两部分，前三字节为OUI，后三字节为扩展，如下图所�
 
 不可解析的私有地址，末尾2位必须是00，其他46位不能是全0或全1，并且该地址不能与公有地址相同，它的结构如下：
 
-![Non-resovable Address](..\_img\Non-resovable_Address.png)
+![Non-resovable Address](../_img/Non-resovable_Address.png)
 
 
 
@@ -120,7 +120,7 @@ iOS设备与Android 5以上的设备，默认采用这种地址方案，地址�
 
 可解析的私有地址，末尾2位必须是10，其他46位不能是全0或全1，它的结构如下：
 
-![Resovable Address](..\_img\Resovable_Address.png)
+![Resovable Address](../_img/Resovable_Address.png)
 
 生成私有地址过程中，利用绑定过程中生成的密钥IRK以及一个随机数，生成一个Hash值。解析时根据新的随机地址和IRK，再生成一个Hash，如果与前面的Hash匹配，则解析通过。
 
@@ -150,7 +150,7 @@ iOS设备与Android 5以上的设备，默认采用这种地址方案，地址�
 
 40个物理信道的频率和作用如下图所示：
 
-![Physical Channels](..\_img\Physical_Channels.png)
+![Physical Channels](../_img/Physical_Channels.png)
 
 其中RF通道的编号在BLE协议中被重新编号，称为信道变化（Channel Index）。
 
