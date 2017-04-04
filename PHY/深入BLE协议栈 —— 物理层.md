@@ -26,7 +26,7 @@ BLE即工作在2.4GHz频段。
 
 BLE工作在2.400GHz - 2.480GHz频率区间，并将这个区间均匀分为40个频道，相邻频道间隔2MHz，各个频道的频率和分布如下图：
 
-![BLE frequency channels](../_img/BLE_frequency_channels.png)
+![BLE frequency channels](../_img/BLE_Frequency_Channels.png)
 
 BLE使用跳频技术（Frequency Hopping）来解决频段拥挤问题。在一个通信任务结束会更新信道信息，下一次通信任务将会发生在另一个信道上，整个通信过程在不同的信道之间进行跳转。
 
